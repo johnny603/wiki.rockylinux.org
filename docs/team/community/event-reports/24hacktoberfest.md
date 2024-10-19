@@ -1,5 +1,5 @@
 ---
-title: Hacktoberfest 2024
+title: Hacktoberfest 2024 
 author: Krista Burdine
 ---
 # Hacktoberfest 2024
