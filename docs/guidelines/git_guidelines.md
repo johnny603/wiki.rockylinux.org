@@ -20,7 +20,7 @@ This document covers how the Rocky Enterprise Software Foundation (RESF) handles
 
 Git is a core component of the Rocky Linux build ecosystem, RESF projects, and thus a mode of the development process for the distribution and available software.
 
-**Gitea** is used for the RESF, its projects, its code, mirrored repositories, and potentially other components.
+**Forgejo** is used for the RESF, its projects, its code, mirrored repositories, and potentially other components.
 
 **GitLab** is the software currently used to storing mostly RPM spec files, patches, configurations for debranding/modification to packages, as well as some scripts/utilities. Generally source code does not live here with the exception of src-git scenarios.
 
@@ -35,7 +35,7 @@ This section goes over the expectations of using a Git service.
 Most of this information is covered in our `Git Contributor Agreement`, which generally covers the RESF Git Service and Rocky Linux GitLab. However, we are duplicating the information here for all readers.
 
 * Moderation is enforced - As is done in the Rocky Linux Mattermost chat, it is important to mind your language and word choice whether in Git issues or the Bug Tracker.
-* A valid GPG key must be uploaded and used to sign your commits - Signed commits, as a general rule are recommended. Expect that most projects will have unsigned commits disabled.
+* A valid GPG key must be uploaded and used to sign your commits - Signed commits, as a general rule are **required**. Expect that most projects will have unsigned commits disabled.
 * Do not treat git as an issue tracker - All issues for Rocky Linux should be tracked at our Bug Tracker. As of this writing, issues are opened for build issues.
 * Do not perform your work or changes on a system that is owned by your employer.
 * Creating personal projects are discouraged (see exceptions)
@@ -112,7 +112,7 @@ SIG group access is typically obtained by contacting a sponsor (as found in Acco
 
 ## Other Groups
 
-Other groups generally will not exist in the Rocky GitLab instance. Rather, they will (and should) exist in the RESF Gitea instance instead. These groups could contain repos for:
+Other groups generally will not exist in the Rocky GitLab instance. Rather, they will (and should) exist in the RESF Forgejo instance instead. These groups could contain repos for:
 
 * A team's source code
 * A team's set of tools or scripts
@@ -226,4 +226,54 @@ If there is a package failing because of a failing current patch, or a new patch
 
 An appropriate bug tracking ticket should be opened, if not opened already (or automatically) to ensure there is documentation for this change.
 
-{% include "releng/resources_bottom.md" %}
+<h4>Resources</h4>
+
+=== "Account Services"
+
+    **URL**: [https://accounts.rockylinux.org](https://accounts.rockylinux.org)
+
+    **Purpose**: Account Services maintains the accounts for almost all components of the Rocky ecosystem
+
+    **Technology**: Noggin used by Fedora Infrastructure
+
+    **Contact**: `~Infrastructure` in Mattermost and `#rockylinux-infra` in Libera IRC
+
+=== "Git (RESF Git Service)"
+
+    **URL**: [https://git.resf.org](https://git.resf.org)
+
+    **Purpose**: General projects, code, and so on for the Rocky Enterprise Software Foundation.
+
+    **Technology**: [Forgejo](https://forgejo.org/)
+
+    **Contact**: `~Infrastructure`, `~Development` in Mattermost and `#rockylinux-infra`, `#rockylinux-devel` in Libera IRC
+
+=== "Git (Rocky Linux GitLab)"
+
+    **URL**: [https://git.rockylinux.org](https://git.rockylinux.org)
+
+    **Purpose**: Packages and light code for the Rocky Linux distribution
+
+    **Technology**: [GitLab](https://gitlab.com)
+
+    **Contact**: `~Infrastructure`, `~Development` in Mattermost and `#rockylinux-infra`, `#rockylinux-devel` in Libera IRC
+
+=== "Mirrors"
+
+    **URL**: [https://mirrors.rockylinux.org](https://mirrors.rockylinux.org)
+
+    **Purpose**: Users can apply to be a mirror to host Rocky content (SIG or the base operating system)
+
+    **Technology**: MirrorManager 2
+
+    **Contact**: `~Infrastructure` in Mattermost and `#rockylinux-infra` in Libera IRC
+
+=== "Mail Lists"
+
+    **URL**: [https://lists.resf.org](https://lists.resf.org)
+
+    **Purpose**: Users can subscribe and interact with various mail lists for the Rocky ecosystem
+
+    **Technology**: Mailman 3 + Hyper Kitty
+
+    **Contact**: `~Infrastructure` in Mattermost and `#rockylinux-infra` in Libera IRC

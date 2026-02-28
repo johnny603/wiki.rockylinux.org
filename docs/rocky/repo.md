@@ -26,18 +26,18 @@ In the event a new release is available, the symlink is changed to point to the 
 
 Each major release has a set of repositories that come default with the distribution. Below is a list of common repositories for each major release, including their repo id.
 
-| Repository       | repoid                    | Rocky 8 | Rocky 9 | Enabled |
-|------------------|---------------------------|---------|---------|---------|
-| BaseOS           | baseos                    | Yes     | Yes     | Yes     |
-| AppStream        | appstream                 | Yes     | Yes     | Yes     |
-| PowerTools       | powertools                | Yes     | No      | No      |
-| CRB              | crb                       | No      | Yes     | No      |
-| HighAvailability | ha (8) / highavailibility | Yes     | Yes     | No      |
-| ResilientStorage | rs (8) / resilientstorage | Yes     | Yes     | No      |
+| Repository       | repoid                    | Rocky 8 | Rocky 9 | Rocky 10 | Enabled |
+|------------------|---------------------------|---------|---------|----------|---------|
+| BaseOS           | baseos                    | Yes     | Yes     | Yes      | Yes     |
+| AppStream        | appstream                 | Yes     | Yes     | Yes      | Yes     |
+| PowerTools       | powertools                | Yes     | No      | No       | No      |
+| CRB              | crb                       | No      | Yes     | Yes      | No      |
+| HighAvailability | ha (8) / highavailibility | Yes     | Yes     | Yes      | No      |
+| ResilientStorage | rs (8) / resilientstorage | Yes     | Yes     | No       | No      |
 
 ### Notes on: CRB
 
-CRB is "Code Ready Builder" - PowerTools was a carryover from CentOS, which is still the equivalent of CRB in RHEL. `crb` will be the repository name going forward in Rocky Linux and other derivatives starting with version 9. Rocky Linux 8 matches CentOS's use of PowerTools in order to be as compatible as possible with what users expect from a rebuild of version 8.
+CRB is "Code Ready Builder" - PowerTools was a carryover from CentOS, which is still the equivalent of CRB in RHEL. `crb` will be the repository name going forward in Rocky Linux and other derivatives starting with version 9. Rocky Linux 8 matches CentOS's use of PowerTools in order to be as compatible as possible with what users expect.
 
 ### Notes on: Lack of "updates" repo
 
@@ -47,14 +47,14 @@ In older major versions, it was normal to have an "updates" repo. Fedora for exa
 
 There are extra repositories offered by Rocky Linux.
 
-| Repository       | repoid           | Rocky 8 | Rocky 9 | Enabled |
-|------------------|------------------|---------|---------|---------|
-| Extras           | extras           | Yes     | Yes     | Yes     |
-| Plus             | plus             | Yes     | Yes     | No      |
-| RT (real time)   | rt               | Yes     | Yes     | No      |
-| NFV              | nfv              | Yes     | Yes     | No      |
-| SAP / SAP HANA   | sap / saphana    | No      | Yes     | No      |
-| Devel / devel    | devel            | Yes     | Yes     | No      |
+| Repository       | repoid           | Rocky 8 | Rocky 9 | Rocky 10 | Enabled |
+|------------------|------------------|---------|---------|----------|---------|
+| Extras           | extras           | Yes     | Yes     | Yes      | Yes     |
+| Plus             | plus             | Yes     | Yes     | Yes      | No      |
+| RT (real time)   | rt               | Yes     | Yes     | Yes      | No      |
+| NFV              | nfv              | Yes     | Yes     | Yes      | No      |
+| SAP / SAP HANA   | sap / saphana    | No      | Yes     | Yes      | No      |
+| Devel / devel    | devel            | Yes     | Yes     | Yes      | No      |
 
 ### Notes on: Extras
 
@@ -64,13 +64,16 @@ These are not tested by upstream nor available in the upstream product.
 
 ### Notes on: Plus
 
-This repository contains packages that either:
+This repository contains packages that may fit into one of the following:
 
 * A) replace a core component via patched functionality
-* B) build a component that was originally exclusive for one architecture (e.g., open-vm-tools built for x86_64 but not aarch64 in Rocky 8) or...
-* C) providing packages that were built but not traditionally provided by upstream, and requested to be available by the community.
+* B) build a component that was originally exclusive for one architecture (e.g., open-vm-tools built for x86_64 but not aarch64 in Rocky 8)
+* C) providing packages that were built but not traditionally provided by upstream, and requested to be available by the community
+* D) providing packages that may be seen as a net benefit to both maintainers and users that deserves a more proper place
 
 Packages that fall under A and B will have a `.plus` added to their version tag. These are not tested nor available in the upstream product.
+
+Packages that fall under C and D are rare, but will occasionally happen from time to time.
 
 ### Notes on: Devel
 
@@ -103,7 +106,7 @@ As with Enterprise Linux and Fedora, there are additional community approved rep
 | **Community Enterprise Linux Repository (ELRepo)** - [ELRepo](http://elrepo.org/) focuses on newer kernels and kmod driver packages to enhance hardware support for currently supported Enterprise Linux versions. This includes display, filesystem, network, storage drivers. You can install the necessary repo files by running `dnf install elrepo-release`. Note that the kernel repositories will have to be enabled. |
 | **RPM Fusion** - [RPM Fusion](https://rpmfusion.org/) provides software that the Fedora Project or Red Hat does not want to ship in Enterprise Linux and Fedora. These repositories do rely on EPEL. The policy is to **not** replace EPEL nor base packages. The free repository can be installed by running `dnf install rpmfusion-free-release`. |
 | **Remi Repository** - [Remi](http://rpms.remirepo.net/) maintains a large collection of RPMs, including latest versions of PHP, among other things. His FAQ can be found [here](http://blog.remirepo.net/pages/English-FAQ). This is a collection of repositories. Using the `-safe` series of repositories will ensure that nothing from the base will be replaced or overwritten. However, be aware that these repositories do **not** play well with other third party repositories. You will need to use caution as you enable more repositories on your system. |
-| **GhettoForge** - [GhettoForge](http://ghettoforge.org/) provides packages not in other third party repositories. Packages that overwrite the base would be in the `gf-plus` repository. Please see [usage](http://ghettoforge.org/index.php/Usage) for more information. |
+| **GhettoForge** - [GhettoForge](http://ghettoforge.net/) provides packages not in other third party repositories. Packages that overwrite the base would be in the `gf-plus` repository. Please see [usage](http://ghettoforge.net/index.php/Usage) for more information. |
 | **Trinity Desktop Environment (TDE)** - [TDE](http://www.trinitydesktop.org/about.php) provides Enterprise Linux packages for a KDE 3.5 style desktop environment. As of this writing, EL8 and EL9 repositories exist. You can find TDE support resources [here](https://www.trinitydesktop.org/support.php). |
 | **ZFS On Linux** - The [ZFS on Linux](http://www.zfsonlinux.org/) project is an implementation of OpenZFS, designed to work in a Linux environment. While this filesystem is very popular, it receives no testing or support from Rocky Release Engineering or Testing. Use at your own risk. |
 | **Upstream centos-release-*** - In the extras repository, there are `centos-release-*` packages that provide additional repositories from the Special Interest Groups of CentOS. As they are available in extras and should work on Rocky Linux, they are considered approved and community supported. |

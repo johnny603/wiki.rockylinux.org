@@ -79,10 +79,11 @@ There are cases where it may do more harm than good to deny or to not provide as
 
 * **[Broken "V" Servers](#broken-v-servers)**
 * **Old minor/point releases of Rocky Linux (See our [version policy](rocky/version.md))**
-* **Upgrades or upgraded Rocky Linux systems (e.g., upgrading CentOS 7 to 8, or Rocky Linux 8 to 9, see our [version policy](rocky/version.md))**
+* **Upgrades or upgraded Rocky Linux systems (e.g., upgrading Rocky Linux 8 to 9, see our [version policy](rocky/version.md))**
 * **Upgrades of the default python version (e.g. python 3.6 to 3.9 or python 3.9 to 3.11)**
+* **Upgrades of the default glibc version provided**
 * **Politics or Profanity**
-* **Distro X is better/worse than Rocky**
+* **Distro X is better/worse than Rocky Linux**
 * **Personal drama from other channels, namespaces, or other users**
 
     * IRC: Repeat offenders will be quieted or banned from the `#rockylinux*` namespace
@@ -200,7 +201,7 @@ System Upgrades are generally unsupported. There are quite a few methods out the
 Regardless of the method, a system that has been "upgraded" is generally considered unsupported, and you will be recommended to build a new system and restore from backups. Users may try to help or assist with your system, but it may be difficult to do so.
 
 !!! note
-    While the tool ELevate exists to help users transition from one major release of an Enterprise Linux to another, we have not formally tested it and we cannot officially provide assistance or feedback to the tool or an upgraded system. There may be users in the channel who have done so and can assist, but at this time it's still an unsupported system setup.
+    While the tool ELevate exists to help users transition from one major release of an Enterprise Linux to another, we have not formally tested it and we cannot officially provide assistance or feedback to the tool or an upgraded system. There may be users in the channel who have done so and can assist, but at this time it's still unsupported.
 
 ### Outdated or End of Life Releases
 
