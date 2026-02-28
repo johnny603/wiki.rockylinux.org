@@ -5,3 +5,4 @@ mkdocs-git-revision-date-localized-plugin
 mkdocs-macros-plugin
 mkdocs-redirects
 mkdocs-windmill
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
